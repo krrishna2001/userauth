@@ -41,7 +41,7 @@ class CustomAccountManager(BaseUserManager):
 class CustomUser(AbstractUser):
     is_doctor = models.BooleanField("Doctor", default=False)
     is_patient = models.BooleanField("Patient", default=False)
-    profile_picture = models.ImageField(upload_to="media")
+    profile_picture = models.ImageField(upload_to="media", blank=True)
     line = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
