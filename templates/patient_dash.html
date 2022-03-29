@@ -9,10 +9,9 @@
     <h1 class="text-lg-start mt-5">Posts from {{category.grouper}}</h1>
     {% for post in category.list %}
         
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-3" style="max-width: 100%; max-height: 20%;">
         <div class="row g-0">
-            <div class="col-md-4">
-                <img src="{{ post.image.url }}" class="img-fluid rounded-start">
+            <div class="col-md-4" style="background-image: url('{{ post.image.url }}'); background-size: cover; background-repeat: no-repeat;">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
