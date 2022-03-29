@@ -11,29 +11,7 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark mb-5">
-        <div class="container">
-            <a href="{% url 'home' %}" style="text-decoration: none;">
-
-                {% if request.user.is_authenticated %}
-                
-                <span class="navbar-brand mb-0 h1">Hello {% block heading %}
-                    
-                    {% endblock heading %} </span>
-                    <a href="{% url 'logout' %}">
-                        
-                        <button type="button" class="btn btn-danger">Log Out</button>
-                    </a>
-                    {% else %}
-                    <span class="navbar-brand mb-0 h1">Welcome</span>
-                    <a href="{% url 'login' %}">
-                        <button class="btn btn-success">Log In</button>
-                    </a>
-                    {% endif %}
-                </a>
-
-        </div>
-    </nav>
+   {% include 'nav_bar.html' %}
     <div class="container">
 
         {% block content %}

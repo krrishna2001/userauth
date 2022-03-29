@@ -1,5 +1,6 @@
 .loginform,
-.signupform {
+.signupform,
+.postform {
   display: flex;
   width: 50%;
   margin: 0 auto;
@@ -7,15 +8,18 @@
   flex-direction: column;
 }
 .loginform input,
-.signupform input {
+.signupform input,
+.postform input {
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
 }
 
 .loginform label,
-.signupform label {
+.signupform label,
+.postform label {
   font-size: larger;
+  margin-top: 10px;
 }
 
 input::-webkit-outer-spin-button,
@@ -26,4 +30,9 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+.post-detail--image {
+  object-fit: contain;
+  width: 100%;
+  height: 10vh;
 }
