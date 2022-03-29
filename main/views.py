@@ -4,6 +4,7 @@ from .models import CustomUser
 from .forms import DoctorSignUpForm, PatientSignUpForm
 from django.contrib.auth import login, authenticate
 from blog.models import Post, Category
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 def home(request):
@@ -19,9 +20,10 @@ def home(request):
         return render(request, "home.html", {})
 
 
-class DoctorDashBoard(TemplateView):
+class DoctorDashBoard(UserPassesTestMixin, TemplateView):
     model = Post
     template_name = "doctor_dash.html"
+    permission_denied_message = "You can not access this page"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -30,15 +32,24 @@ class DoctorDashBoard(TemplateView):
         )
         return context
 
+    def test_func(self):
+        return self.request.user.is_doctor
 
-class PostsView(ListView):
+
+class PostsView(UserPassesTestMixin, ListView):
     model = Post
     template_name = "patient_dash.html"
     queryset = Post.objects.filter(draft=False).order_by("category")
 
+    def test_func(self):
+        return self.request.user.is_patient
 
-class PatientDashBoard(TemplateView):
+
+class PatientDashBoard(UserPassesTestMixin, TemplateView):
     template_name = "home.html"
+
+    def test_func(self):
+        return self.request.user.is_patient
 
 
 class SignUpView(TemplateView):
