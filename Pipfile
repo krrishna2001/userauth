@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 django-heroku = "*"
 coverage = "*"
+mysqlclient = "*"
 
 [dev-packages]
 

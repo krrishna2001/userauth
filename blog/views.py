@@ -54,14 +54,15 @@ class DraftPostList(UserPassesTestMixin, ListView):
             written_by=self.request.user, draft=True
         )
         return context
+
     def test_func(self):
         return self.request.user.is_doctor
 
 
-
-class PostUpdate(UserPassesTestMixin,UpdateView):
+class PostUpdate(UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "update_post.html"
-    fields = ["title", "summary", "image", "content", "category"]
+    fields = ["title", "summary", "image", "content", "category", "draft"]
+
     def test_func(self):
         return self.request.user.is_doctor

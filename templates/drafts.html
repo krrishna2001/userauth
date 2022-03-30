@@ -15,7 +15,10 @@
                         <p class="btn btn-sm btn-success">View</p>
                     </a>
                     <p class="btn btn-sm btn-danger">Delete</p>
-                    <p class="btn btn-sm btn-info">Edit</p>
+                    <a href="{% url 'post_update' post.slug %}">
+                    
+                        <p class="btn btn-sm btn-info">Edit</p>
+                    </a>
                 </div>
             </div>
         </div>
