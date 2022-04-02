@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Local Apps
     "main.apps.MainConfig",
     "blog.apps.BlogConfig",
+    "appointments.apps.AppointmentsConfig",
 ]
 
 MIDDLEWARE = [

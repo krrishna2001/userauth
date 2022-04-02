@@ -20,6 +20,10 @@
             
                 <button type="button" class="btn btn-info">View Drafts</button>
             </a>
+            <a href="{% url 'list_appointments' %}">
+            
+                <button type="button" class="btn btn-info">View Appoitments</button>
+            </a>
             {% else %}
             <span class="navbar-brand mb-0 h1">
             
@@ -32,6 +36,14 @@
                 <a href="{% url 'all_posts' %}">
                 
                     <button type="button" class="btn btn-info">View Posts</button>
+                </a>
+                <a href="{% url 'list_doctors' %}">
+                
+                    <button type="button" class="btn btn-info">Book an Appointment</button>
+                </a>
+                <a href="{% url 'list_appointments' %}">
+                
+                    <button type="button" class="btn btn-info">Booked Appoitments</button>
                 </a>
             {% endif %}
                 
