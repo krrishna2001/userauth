@@ -3,3 +3,8 @@
     <h1>Thanks for Visiting</h1>
     <a href="{% url 'login' %}">Log In Again</a>
 {% endblock content %}
+<!-- on a template where you want to add a logout button -->
+<form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">logout</button>
+</form>

@@ -51,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -80,11 +81,11 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "django_mysql",
+        "NAME": "user",
         "USER": "root",
         "PASSWORD": "",
         "HOST": "127.0.0.1",
-        "PORT": 3308,
+        "PORT": 3306,
     }
 }
 
